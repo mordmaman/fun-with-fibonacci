@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fun with Fibonacci</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+	
+	function fibonacci(){
+		var n = document.getElementById("answer").value;
+		var solution = [];
+		var first = 0, second = 1, next, c;
+		
+		
+		for (var c = 0; c<n; c++){
+			if (c<=1){
+				next = c;
+			}
+			else {
+				next = first + second;
+				first = second;
+				second = next;
+			}
+			solution.push(next);
+		}
+		
+		alert(solution);
+	}
+	
+	function millions(){
+		
+		var solution = [];
+		var first = 0, second = 1, next, c;
+		
+		for (var c = 0; c<34; c++){
+			if (c<=1){
+				next = c;
+			}
+			else {
+				next = first + second;
+				first = second;
+				second = next;
+				
+				if(next % 2==0){
+					solution.push(next);
+				}
+				else {};
+			}
+			
+			}
+			
+			var total = 0;
+				for(var i = 0; i < solution.length; i++){
+				total += solution[i];
+				}
+		
+		
+		alert(total);
+	}
+	</script>
+</head>
+
+<body>
+    <div class="container">
+        
+        <div class="page-header">
+            <h1 class="text-center">Fun with Fibonacci</h1>
+        </div>
+        <br>
+		
+		<h3>Fibonacci solver</h3>
+		
+		<p>Need to find out the first 5 terms of the Fibonacci sequence? Or the first 53? Let your hair down, go nuts.</p>
+	
+	<form id="question">
+    	Enter number of places you wish Fibonnaci to solve to:<br>
+		<br>
+    	<input type="text" name="number" id="answer"><button type="button" class="btn btn-success" onclick="fibonacci()" style="margin-left: 20px">Submit</button>
+  	</form>
+	  <br>
+	  <br>
+	  
+	  <p>Let's be honest, you've always wanted to know the sum of the even-valued Fiboacci terms whose values do not exceed four million.
+		  Today is your lucky day! Find out the answer by clicking the button below!<p> 
+	  <button type="button" class="btn btn-success" onclick="millions()">Find out!</button>
+        
+          </div><!--closes container-->
+</body>
+</html>
